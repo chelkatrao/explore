@@ -1,0 +1,31 @@
+When to use the Observer Pattern!
+
+-> Loose coupling is a benefit
+
+    -> The subject (publisher) doesn't need to know anything about the
+     Observers (subscribers)
+
+->  Negatives: The Subject (publisher) may send updates that don't
+matter to the Observer (subscribers)
+
+----------------------------------------------------------UML--------------------------------------------------------
+
+
+
+                                          _________________________________
+                                         |_______<interface> Observer______|
+                                         |                                 |
+                                         |  + update():void                |
+                                         |                                 |
+                                         |                                 |
+                                         |_________________________________|
+                                        _|                |               |_
+                                      _/                  |                 |_
+                                    _/                    |                   |_
+                                  _/                      |                     |_
+  _______________________________/                        | (implement)           |_     (implement)
+ |___________Subject_____________|         _______________|________________     ____|___________________________
+ | + register(Observer o):void   |        |____________IBMPrice____________|   |____________AAPLPrice___________|
+ | + unregister(Observer o):void |        |         + update():void        |   |         + update():void        |
+ | + notifyObserver():void       |        |________________________________|   |________________________________|
+ |_______________________________|

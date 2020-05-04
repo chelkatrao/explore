@@ -1,0 +1,48 @@
+When to use the strategy pattern!
+
+When you want to define a class that will have one behavior
+that is similar to other behaviors in a list
+
+ -> I want the class object to be able to choose from
+    -> Not Flying
+    -> Fly with Wings
+    -> Fly super fast
+
+ -> When you need to use one of several behaviors dynamically
+    (Project ishlashi davomida classdagi o'sh maydon dinamik ravishda
+    turli tiplar ga o'zgarish hususiyati kerak bo'lgan holatlarda ham ishlatish mumkun
+    agar strategy pattern dan foydalanmaydigan bo'lsak bizda faqat bitta algoritmni
+    ishlatishimizga to'g'ri keladi shu jihatdan strategy pattern bizga juda qo'l keladi)
+
+ -> Often reduces long lists of conditionals
+
+ -> Avoids  duplicate code
+
+ -> Keeps class changes from forcing other class changes
+
+ -> Can hide complicated / secret code from the user
+
+ -> Negative: Increased Number of Object / Classes
+
+--------------------------------------------------------------------------UML--------------------------------------------------------------------------
+
+
+
+                 _________________________________                                                        _________________________________
+                |_____________Animal______________|                  Has A Relationship                  |_______<interface>_Flays_________|
+                |     +flayingType:Flys           |______________________________________________________|                                 |
+                |_________________________________|                                                      |       +fly():String             |
+                |     +tryToFly():String          |                                                      |                                 |
+                |    +setFlyingAbility(Flys):void |                                                      |_________________________________|
+                |_________________________________|                                                            /                \
+                      /       Extends       \                                                                 /                  \
+                     /                       \                                                               /                    \
+                    /                         \                                                             /                      \
+                   /                           \                                                           /                        \
+                  /                             \                                                         /                          \
+  _______________/________________     __________\_____________________               ___________________/____________     ___________\____________________
+ |______________Dog_______________|   |_______________Bird_____________|             |_____________ItFlys_____________|   |_____________CantFly____________|
+ |                                |   |                                |             |                                |   |                                |
+ |________________________________|   |________________________________|             |                                |   |                                |
+                                                                                     |________________________________|   |________________________________|
+
